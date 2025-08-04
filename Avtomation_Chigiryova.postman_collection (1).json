@@ -1,0 +1,554 @@
+{
+	"info": {
+		"_postman_id": "d1a341ef-7b42-4039-b2c0-e5c36cf4b5d3",
+		"name": "Avtomation_Chigiryova",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "44761245"
+	},
+	"item": [
+		{
+			"name": "AddAnewPetToTheStore_200ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet ID\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(4567891237531598524);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet category\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.category.id).to.eql(0);\r",
+							"    pm.expect(jsonData.category.name).to.eql(\"pig\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"dolly\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet photoUrls\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.photoUrls).to.eql([\"https://www.treehugger.com/thmb/Xpr8P152_bg8SUAbogyoOwal1WQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/piglet-grass-dandelions-01-b21d7ef8f881496f8346dbe01859537e.jpg\"]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet tags\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.tags[0].id).to.eql(0);\r",
+							"    pm.expect(jsonData.tags[0].name).to.eql(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet status\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.status).to.eql(\"pending\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 4567891237531598524,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"pig\"\r\n  },\r\n  \"name\": \"dolly\",\r\n  \"photoUrls\": [\r\n    \"https://www.treehugger.com/thmb/Xpr8P152_bg8SUAbogyoOwal1WQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/piglet-grass-dandelions-01-b21d7ef8f881496f8346dbe01859537e.jpg\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/pet"
+			},
+			"response": []
+		},
+		{
+			"name": "AddAnewPetToTheStore_405",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check the name cod 405\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Invalid input\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 08,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"string\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/pet"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAnExcPet_200ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet ID\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(4567891237531598524);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet category\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.category.id).to.eql(0);\r",
+							"    pm.expect(jsonData.category.name).to.eql(\"pig\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"dolly\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet photoUrls\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.photoUrls).to.eql([\"https://www.treehugger.com/thmb/Xpr8P152_bg8SUAbogyoOwal1WQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/piglet-grass-dandelions-01-b21d7ef8f881496f8346dbe01859537e.jpg\", \"https://site-547756.mozfiles.com/files/547756/medium/Pig.jpg?1502908705\"]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet tags\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.tags[0].id).to.eql(0);\r",
+							"    pm.expect(jsonData.tags[0].name).to.eql(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet status\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.status).to.eql(\"pending\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 4567891237531598524,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"pig\"\r\n  },\r\n  \"name\": \"dolly\",\r\n  \"photoUrls\": [\r\n    \"https://www.treehugger.com/thmb/Xpr8P152_bg8SUAbogyoOwal1WQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/piglet-grass-dandelions-01-b21d7ef8f881496f8346dbe01859537e.jpg\",\r\n    \"https://site-547756.mozfiles.com/files/547756/medium/Pig.jpg?1502908705\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/pet"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAnExcPet_400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.massege).to.eql(\"Invalid ID supplied\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 9223372036854771885,\r\n  \"category\": {\r\n    \"id\": 020,\r\n    \"name\": \"rabbit\"\r\n  },\r\n  \"name\": \"{{$randomNamePrefix}}\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"sold\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/pet"
+			},
+			"response": []
+		},
+		{
+			"name": "FindPetsByStatus_200ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet status\", function () {\r",
+							"    var [jsonData] = pm.response.json();\r",
+							"    pm.expect(jsonData.status).to.eql(\"sold\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/pet/findByStatus?status=sold",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "dolly",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "sold"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindPetsByStatus_400",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"pm.test(\"Chek cod name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.massege).to.eql(\"Invalid status value\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/pet/findByStatus?status=Notavaileble",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Notavaileble"
+						},
+						{
+							"key": "name",
+							"value": "dolly",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindPetByID_200ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet ID\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.id).to.eql(4567891237531598524);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet category\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.category.id).to.eql(0);\r",
+							"    pm.expect(jsonData.category.name).to.eql(\"pig\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"dolly\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet photoUrls\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.photoUrls).to.eql([\"https://www.treehugger.com/thmb/Xpr8P152_bg8SUAbogyoOwal1WQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/piglet-grass-dandelions-01-b21d7ef8f881496f8346dbe01859537e.jpg\",\"https://site-547756.mozfiles.com/files/547756/medium/Pig.jpg?1502908705\"]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet tags\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.tags[0].id).to.eql(0);\r",
+							"    pm.expect(jsonData.tags[0].name).to.eql(\"string\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check pet status\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.status).to.eql(\"pending\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/pet/4567891237531598524",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"pet",
+						"4567891237531598524"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "dolly",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindPetByID_404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Chek name cod\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Pet not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/pet/4567891237531598501",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"pet",
+						"4567891237531598501"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "dolly",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletesApet_404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check name body\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Pet not found\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{BaseURL}}/pet/4567891237531598501",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"pet",
+						"4567891237531598501"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "dolly",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletesApet_200ok",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check type name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.type).to.eql(\"unknown\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check message name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"18041988\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{BaseURL}}/pet/18041988",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"pet",
+						"18041988"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "dolly",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "https://petstore.swagger.io/v2",
+			"type": "default"
+		}
+	]
+}

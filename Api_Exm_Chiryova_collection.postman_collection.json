@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "13e75a91-d571-447a-a6a0-14f458654fa8",
+		"name": "Api_Exm_Chiryova_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "44761245"
+	},
+	"item": [
+		{
+			"name": "ChL_1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598524,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:39:42.132Z\",\r\n  \"status\": \"plased\",\r\n  \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:55:42.132Z\",\r\n  \"status\": \"plased\",\r\n  \"complete\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": \"approved\",\r\n  \"complete\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_7",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": \"delivered\",\r\n  \"complete\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_8",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": \"complete\",\r\n  \"complete\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_9",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": null,\r\n  \"complete\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_10",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": 12546,\r\n  \"complete\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_11",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": \"delivered\",\r\n  \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_12",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": \"delivered\",\r\n  \"complete\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_13",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": \"delivered\",\r\n  \"complete\": 1235\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_14",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598545,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30T11:57:42.132Z\",\r\n  \"status\": \"delivered\",\r\n  \"complete\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598524,\r\n  \"quantity\": 12,\r\n  \"shipDate\": \"2025-05-30\",\r\n  \"status\": \"plased\",\r\n  \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598524,\r\n  \"quantity\": 12,\r\n  \"shipDate\": 11159,\r\n  \"status\": \"plased\",\r\n  \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		},
+		{
+			"name": "ChL_4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 4567891237531598524,\r\n  \"quantity\": 12,\r\n  \"shipDate\": null,\r\n  \"status\": \"plased\",\r\n  \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseURL}}/store/order"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
