@@ -1,0 +1,116 @@
+﻿1.
+
+
+SELECT department_name,
+CASE
+        WHEN location_id=1700 THEN 'Washington'
+  WHEN location_id=1400 THEN 'Texas'
+  WHEN location_id in(1500,2500) THEN 'California'
+  WHEN location_id=1800 THEN 'Ontario'
+  WHEN location_id=2400 THEN 'Other'
+  WHEN location_id=2700 THEN 'Bavaria'
+END AS State
+FROM departments;
+
+
+2.
+
+
+SELECT COUNT(location_id), country_id
+FROM locations
+GROUP BY country_id
+ORDER BY COUNT(location_id) DESC;
+
+
+3.
+
+
+SELECT COUNT(location_id), country_id
+FROM locations
+GROUP BY country_id
+HAVING COUNT(location_id)>2
+ORDER BY COUNT(location_id) DESC;
+
+
+4.
+
+
+SELECT locations.street_address, locations.state_province,
+               countries.country_name
+FROM locations
+FULL OUTER JOIN countries ON locations.country_id=countries.country_id
+ORDER BY country_name ASC;
+
+
+5.
+
+
+SELECT 
+               COUNT(locations.street_address) AS count_street_address,
+               countries.country_name
+FROM locations
+INNER JOIN countries ON locations.country_id=countries.country_id
+GROUP BY countries.country_name;
+
+
+6.
+
+
+SELECT locations.state_province, countries.country_name, regions.region_name
+FROM locations
+FULL OUTER JOIN countries ON locations.country_id=countries.country_id 
+FULL OUTER JOIN regions ON countries.region_id=regions.region_id;
+
+
+7.
+
+
+SELECT 
+       COUNT(locations.street_address),
+       COUNT(countries.country_name),
+       regions.region_name
+FROM locations
+INNER JOIN countries ON locations.country_id=countries.country_id
+INNER JOIN regions ON countries.region_id=regions.region_id
+GROUP BY regions.region_name;
+
+
+8.
+
+
+SELECT 
+       COUNT(l.street_address),
+       COUNT(c.country_name), 
+       r.region_name
+FROM locations l
+INNER JOIN countries c ON l.country_id=c.country_id
+INNER JOIN regions r ON c.region_id=r.region_id
+GROUP BY r.region_name;
+
+
+9.
+
+
+SELECT 
+       COUNT(locations.street_address),
+       COUNT(countries.country_name),
+       regions.region_name
+FROM locations
+INNER JOIN countries ON locations.country_id=countries.country_id
+INNER JOIN regions ON countries.region_id=regions.region_id
+GROUP BY regions.region_name
+HAVING COUNT(countries.country_name)>6;
+
+
+10.
+
+
+SELECT
+        COUNT(locations.street_address) AS street_count,
+        COUNT(countries.country_name) AS countries_count,
+        regions.region_name AS region
+FROM locations
+INNER JOIN countries ON locations.country_id=countries.country_id
+INNER JOIN regions ON countries.region_id=regions.region_id
+GROUP BY regions.region_name
+HAVING COUNT(countries.country_name)>6;

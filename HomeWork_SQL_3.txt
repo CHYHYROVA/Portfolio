@@ -1,0 +1,133 @@
+﻿1.
+SELECT employee_id, hire_date AS start_date, NULL AS end_date
+FROM employees
+WHERE employee_id NOT IN ( SELECT employee_ID
+                                                    FROM job_history)
+UNION
+SELECT employee_id, start_date, end_date
+FROM job_history;
+
+
+
+
+2.
+SELECT 
+    COUNT(employee_id) AS count_id, 'current_employees' AS status
+FROM employees
+WHERE employee_id NOT IN (SELECT employee_id 
+                                                   FROM job_history)
+UNION
+SELECT 
+    COUNT(employee_id) AS count_id, 'fired_employees' AS status
+FROM job_history;
+
+
+
+
+3.
+SELECT 
+    COUNT(employee_id) AS count_id, 'current_employees' AS status, job_id
+FROM employees
+WHERE employee_id NOT IN (SELECT employee_id 
+                                                  FROM job_history)
+GROUP BY job_id
+UNION
+SELECT 
+    COUNT(employee_id) AS count_id, 'fired_employees' AS status, job_id
+FROM job_history
+GROUP BY job_id;
+
+
+
+
+4.
+SELECT department_id, COUNT(employee_id) AS count_id
+FROM employees 
+WHERE department_id IN (SELECT department_id
+                       FROM job_history
+                       GROUP BY department_id
+                       HAVING COUNT(department_id)>1) 
+GROUP BY department_id                       
+ORDER BY count_id DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+  
+5.
+SELECT a.employee_id, a.first_name, a.last_name
+FROM employees a
+WHERE a.department_id IN(SELECT department_id
+                         FROM job_history
+                         WHERE end_date - start_date < 365);
+
+
+SELECT a.employee_id, a.first_name, a.last_name
+FROM employees a
+WHERE a.department_id IN(SELECT department_id
+                         FROM job_history
+                         WHERE MONTHS_BETWEEN(start_date, end_date)<12);
+
+
+6.
+SELECT a.employee_id, a.first_name, a.last_name
+FROM employees a
+WHERE a.department_id IN(SELECT department_id
+                         FROM job_history
+                         WHERE end_date - start_date > 365);
+
+
+SELECT a.employee_id, a.first_name, a.last_name
+FROM employees a
+WHERE a.department_id IN(SELECT department_id
+                         FROM job_history
+                         WHERE MONTHS_BETWEEN(end_date, start_date)>12);
+
+
+7.
+SELECT COUNT(a.employee_id) AS count_id, a.department_id  
+FROM employees a
+WHERE a.department_id IN(SELECT department_id
+                         FROM job_history
+                         WHERE end_date - start_date > 365)
+GROUP BY a.department_id
+ORDER BY count_id DESC;
+
+
+8.
+INSERT INTO employees (employees.employee_id, employees.first_name, employees.last_name, employees.email, employees.phone_number, employees.hire_date, employees.job_id, employees.salary, employees.commission_pct, employees.manager_id, employees.department_id)
+VALUES (288, 'Natalya', 'Chigiryova', 'qwert.com', '444.344.8544', SYSDATE, 'IT_PROG', 25000, null, 205, 110);[a][b]
+ 
+9.
+UPDATE employees
+SET department_id=90, salary=30000
+WHERE employee_id=288;
+
+
+10.
+DELETE 
+FROM employees
+WHERE last_name = 'Chigiryova'[c];
+
+
+
+
+
+
+
+
+
+
+
+
+[a]Можна не писати employees. перед кожною назвою поля, але це не помилка.
+[b]Ви впевнені у правильному форматі Email?
+[c]не видалить запис, бо спочатку потрібно видалити з дочірньої таблиці - це раз, а 2 - не правильно видаляти по прізвищу - Таких людей може бути декілька
