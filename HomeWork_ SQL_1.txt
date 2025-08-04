@@ -1,0 +1,62 @@
+﻿1.  SELECT first_name, last_name, salary, department_id
+   FROM employees
+   WHERE salary<=10000;
+
+
+2.          SELECT first_name, last_name, job_id, commission_pct
+             FROM employees
+             WHERE commission_pct is null;
+
+
+3.          SELECT first_name, last_name, department_id
+             FROM employees
+             WHERE first_name='John';
+
+
+             SELECT first_name, last_name, department_id
+             FROM employees
+             WHERE first_name like 'John';
+
+
+4.          SELECT first_name, last_name, department_id, salary
+             FROM employees
+             WHERE department_id=80 AND salary<10000;
+
+
+5.          SELECT first_name, last_name, department_id, salary
+             FROM employees
+             WHERE department_id in (80, 110) AND salary BETWEEN 10000 and 17000;
+
+
+6.          SELECT first_name, last_name, department_id, salary, commission_pct
+             FROM employees
+             WHERE department_id in (80, 110) AND salary BETWEEN 10000 and 17000 
+             AND commission_pct is not null;
+
+
+7.         SELECT first_name, last_name, manager_id
+            FROM employees
+            WHERE first_name like 'D%' AND manager_id=108;
+
+
+8.         SELECT * FROM employees
+            WHERE manager_id IN(100, 108, 124);
+
+
+9.         SELECT * FROM employees
+            WHERE commission_pct IS NULL and salary<10000
+            ORDER BY salary DESC;
+
+
+10.       SELECT last_name || ‘ ’ || first_name 
+            AS List_of_employees_or_review, salary, commission_pct
+            FROM employees
+            WHERE salary<10000 AND commission_pct is NULL
+            ORDER BY salary DESC;
+
+
+            SELECT CONCAT (last_name, CONCAT(‘ ‘, first_name)) 
+            AS List_of_employees_or_review, salary, commission_pct
+            FROM employees
+            WHERE salary<10000 AND commission_pct IS NULL
+            ORDER BY salary DESC;
